@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qra1f6bxhbhu"]
+
+[ext_resource type="Texture2D" uid="uid://d3dfd1af8igvh" path="res://Assets/Art/Artboard1_7.png" id="1_p3bxc"]
+
+[node name="Title" type="Node2D"]
+
+[node name="Artboard17" type="Sprite2D" parent="."]
+position = Vector2(545, 961)
+texture = ExtResource("1_p3bxc")
