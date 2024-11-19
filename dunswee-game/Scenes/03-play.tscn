@@ -1,22 +1,1412 @@
-[gd_scene load_steps=3 format=3 uid="uid://kwue07x5nv8p"]
+[gd_scene load_steps=8 format=3 uid="uid://kwue07x5nv8p"]
 
 [ext_resource type="Script" path="res://Scripts/03_play.gd" id="1_e12oe"]
+[ext_resource type="PackedScene" uid="uid://yp2ijcxoo3s5" path="res://Scenes/Nested/tile.tscn" id="2_4mri7"]
 [ext_resource type="PackedScene" uid="uid://brtngl3qvyxhu" path="res://Scenes/Nested/bttnStart.tscn" id="2_76oub"]
+[ext_resource type="Script" path="res://Scripts/Nested/field.gd" id="2_rx2md"]
+[ext_resource type="Texture2D" uid="uid://bdv44w1hk2i42" path="res://Assets/Art/Frame.png" id="2_w2kvs"]
+[ext_resource type="Texture2D" uid="uid://cmhsd6ng1obf1" path="res://Assets/Art/Frame-Long.png" id="3_4gi6p"]
+[ext_resource type="Texture2D" uid="uid://eewgtu43wbie" path="res://Assets/Art/Buttons.png" id="4_hi10b"]
 
-[node name="Play" type="Node2D"]
+[node name="Play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_e12oe")
 
-[node name="BttnStart" parent="." instance=ExtResource("2_76oub")]
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.209317, 0.335502, 0.384554, 1)
+
+[node name="Top" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 306.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="background" type="ColorRect" parent="Top"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.147
+offset_bottom = 0.0179749
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.235678, 0.287224, 0.557151, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="Top"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 318.0
-offset_top = 612.0
-offset_right = 318.0
-offset_bottom = 612.0
+offset_left = -105.5
+offset_top = 127.0
+offset_right = 105.5
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_w2kvs")
+
+[node name="TextureRect5" type="TextureRect" parent="Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = 127.0
+offset_right = -104.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4gi6p")
+
+[node name="TextureRect3" type="TextureRect" parent="Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 103.0
+offset_top = 127.0
+offset_right = 314.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w2kvs")
+
+[node name="TextureRect4" type="TextureRect" parent="Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 314.0
+offset_top = 127.0
+offset_right = 525.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w2kvs")
+
+[node name="Game" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -750.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="background" type="ColorRect" parent="Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.185675, 0.349349, 0.325153, 1)
+
+[node name="Field" type="Control" parent="Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_rx2md")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Game/Field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Game/Field/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 15
+metadata/_edit_group_ = true
+
+[node name="Tile" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile2" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile3" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile4" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile5" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile6" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile7" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile8" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile9" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile10" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile11" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile12" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile13" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile14" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile15" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile16" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile17" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile18" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile19" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile20" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile21" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile22" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile23" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile24" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile25" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile26" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile27" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile28" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile29" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile30" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile31" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile32" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile33" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile34" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile35" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile36" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile37" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile38" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile39" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile40" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile41" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile42" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile43" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile44" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile45" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile46" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile47" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile48" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile49" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile50" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile51" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile52" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile53" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile54" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile55" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile56" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile57" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile58" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile59" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile60" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile61" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile62" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile63" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile64" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile65" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile66" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile67" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile68" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile69" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile70" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile71" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile72" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile73" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile74" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile75" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile76" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile77" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile78" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile79" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile80" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile81" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile82" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile83" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile84" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile85" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile86" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile87" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile88" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile89" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile90" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile91" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile92" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile93" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile94" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile95" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile96" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile97" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile98" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile99" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile100" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile101" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile102" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile103" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile104" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile105" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile106" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile107" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile108" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile109" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile110" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile111" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile112" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile113" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile114" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile115" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile116" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile117" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile118" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile119" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile120" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile121" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile122" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile123" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile124" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile125" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile126" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile127" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile128" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile129" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile130" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile131" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile132" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile133" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile134" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile135" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile136" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile137" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile138" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile139" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile140" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile141" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile142" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile143" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile144" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile145" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile146" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile147" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile148" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile149" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile150" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile151" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile152" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile153" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile154" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile155" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile156" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile157" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile158" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile159" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile160" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile161" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile162" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile163" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile164" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile165" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile166" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile167" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile168" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile169" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile170" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile171" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile172" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile173" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile174" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile175" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile176" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile177" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile178" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile179" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile180" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile181" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile182" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile183" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile184" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile185" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile186" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile187" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile188" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile189" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile190" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile191" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile192" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile193" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile194" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile195" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile196" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile197" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile198" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile199" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile200" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile201" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile202" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile203" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile204" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile205" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile206" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile207" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile208" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile209" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile210" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile211" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile212" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile213" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile214" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile215" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile216" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile217" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile218" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile219" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile220" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile221" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile222" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile223" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile224" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile225" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile226" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile227" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile228" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile229" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile230" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile231" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile232" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile233" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile234" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile235" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile236" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile237" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile238" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile239" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Tile240" parent="Game/Field/ScrollContainer/GridContainer" instance=ExtResource("2_4mri7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Bottom" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -323.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="background" type="ColorRect" parent="Bottom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.396018, 0.201466, 0.558275, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Bottom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.5
+offset_top = -219.5
+offset_right = 450.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hi10b")
+
+[node name="BttnStart" parent="." instance=ExtResource("2_76oub")]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -323.0
+offset_right = -267.0
+offset_bottom = -323.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]

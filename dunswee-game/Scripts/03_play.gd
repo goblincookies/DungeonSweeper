@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 signal initiateSceneChange( sceneIndex:int );
 

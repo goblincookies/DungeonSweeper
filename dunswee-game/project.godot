@@ -18,7 +18,7 @@ config/icon="res://Assets/Art/Logo.png"
 [display]
 
 window/size/viewport_width=1080
-window/size/viewport_height=1920
+window/size/viewport_height=2400
 window/handheld/orientation=1
 
 [input_devices]
