@@ -1,9 +1,121 @@
-[gd_scene load_steps=2 format=3 uid="uid://qra1f6bxhbhu"]
+[gd_scene load_steps=9 format=3 uid="uid://qra1f6bxhbhu"]
 
-[ext_resource type="Texture2D" uid="uid://d3dfd1af8igvh" path="res://Assets/Art/Artboard1_7.png" id="1_p3bxc"]
+[ext_resource type="Texture2D" uid="uid://d3dfd1af8igvh" path="res://Assets/Art/tut-1.png" id="1_p3bxc"]
+[ext_resource type="Script" path="res://Scripts/02_tutorial.gd" id="1_pvw6c"]
+[ext_resource type="Texture2D" uid="uid://r4jctomaxilg" path="res://Assets/Art/tut-2.png" id="3_1qj1j"]
+[ext_resource type="PackedScene" uid="uid://brtngl3qvyxhu" path="res://Scenes/Nested/bttnStart.tscn" id="3_ixg4f"]
+[ext_resource type="Texture2D" uid="uid://ch2lqktfwd1ct" path="res://Assets/Art/tut-3.png" id="4_quap7"]
+[ext_resource type="Texture2D" uid="uid://dw7hwd2ymmrwy" path="res://Assets/Art/tut-4.png" id="5_gu2c8"]
+[ext_resource type="Texture2D" uid="uid://dil3mbe3lqhkk" path="res://Assets/Art/tut-5.png" id="6_1xn32"]
+[ext_resource type="Texture2D" uid="uid://bcw5mppw3hg8m" path="res://Assets/Art/tut-6.png" id="7_b1c11"]
 
-[node name="Title" type="Node2D"]
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pvw6c")
 
-[node name="Artboard17" type="Sprite2D" parent="."]
+[node name="Pages" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="0" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-1" type="Sprite2D" parent="Pages/0"]
 position = Vector2(545, 961)
 texture = ExtResource("1_p3bxc")
+
+[node name="1" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-2" type="Sprite2D" parent="Pages/1"]
+position = Vector2(545, 961)
+texture = ExtResource("3_1qj1j")
+
+[node name="2" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-3" type="Sprite2D" parent="Pages/2"]
+position = Vector2(545, 961)
+texture = ExtResource("4_quap7")
+
+[node name="3" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-4" type="Sprite2D" parent="Pages/3"]
+position = Vector2(545, 961)
+texture = ExtResource("5_gu2c8")
+
+[node name="4" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-5" type="Sprite2D" parent="Pages/4"]
+position = Vector2(545, 961)
+texture = ExtResource("6_1xn32")
+
+[node name="5" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-6" type="Sprite2D" parent="Pages/5"]
+position = Vector2(545, 961)
+texture = ExtResource("7_b1c11")
+
+[node name="BttnStart" parent="." instance=ExtResource("3_ixg4f")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 632.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]

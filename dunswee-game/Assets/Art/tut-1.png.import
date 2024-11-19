@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw7hwd2ymmrwy"
-path="res://.godot/imported/Artboard1_4.png-fb75dc4ab84c22326fc4d2101381af33.ctex"
+uid="uid://d3dfd1af8igvh"
+path="res://.godot/imported/tut-1.png-5630ff9f96fa735e45128aee850fc7b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Artboard1_4.png"
-dest_files=["res://.godot/imported/Artboard1_4.png-fb75dc4ab84c22326fc4d2101381af33.ctex"]
+source_file="res://Assets/Art/tut-1.png"
+dest_files=["res://.godot/imported/tut-1.png-5630ff9f96fa735e45128aee850fc7b6.ctex"]
 
 [params]
 
