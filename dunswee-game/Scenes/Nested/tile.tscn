@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://yp2ijcxoo3s5"]
+[gd_scene load_steps=8 format=3 uid="uid://yp2ijcxoo3s5"]
 
 [ext_resource type="Script" path="res://Scripts/Nested/tile.gd" id="1_exg0f"]
+[ext_resource type="Texture2D" uid="uid://dqrlix0tch6h8" path="res://Assets/Art/TitleCovered.png" id="2_6jdk4"]
+[ext_resource type="Texture2D" uid="uid://3exugw43ddu3" path="res://Assets/Art/TitleRevealed.png" id="3_sp478"]
+[ext_resource type="Texture2D" uid="uid://dtqsi0o7j188h" path="res://Assets/Art/Enemy.png" id="4_0g30p"]
+[ext_resource type="Texture2D" uid="uid://cem7mqt5gn2js" path="res://Assets/Art/Empty.png" id="5_28lkj"]
+[ext_resource type="Texture2D" uid="uid://dfo7x1trforra" path="res://Assets/Art/Key.png" id="6_psn7l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apukc"]
 size = Vector2(120, 120)
@@ -15,6 +20,7 @@ mouse_filter = 2
 script = ExtResource("1_exg0f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,10 +30,86 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.654628, 0.145585, 0.370566, 1)
 
+[node name="TitleRevealed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(60, 60)
+texture = ExtResource("3_sp478")
+
+[node name="TitleCovered" type="Sprite2D" parent="."]
+position = Vector2(60, 60)
+texture = ExtResource("2_6jdk4")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+texture_repeat = 1
+position = Vector2(60, 60)
+scale = Vector2(0.783333, 0.783333)
+texture = ExtResource("4_0g30p")
+
+[node name="Empty" type="Sprite2D" parent="."]
+position = Vector2(60, 60)
+texture = ExtResource("5_28lkj")
+
+[node name="Key" type="Sprite2D" parent="."]
+position = Vector2(60, 60)
+texture = ExtResource("6_psn7l")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(60, 60)
 shape = SubResource("RectangleShape2D_apukc")
+
+[node name="countEnemy" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -55.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Count2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -55.5
+offset_right = 26.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="countKey" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -55.0
+offset_right = 60.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

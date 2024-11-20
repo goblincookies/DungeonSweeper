@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/00-Game.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Assets/Art/Logo.png"
 
+[autoload]
+
+GlobalGame="*res://Scripts/GlobalGame.gd"
+
 [display]
 
 window/size/viewport_width=1080
@@ -27,5 +31,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true

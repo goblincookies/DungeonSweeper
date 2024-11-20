@@ -140,7 +140,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_rx2md")
 grid = NodePath("ScrollContainer/GridContainer")
-enemyCount = 30
+enemyCount = 15
 keyCount = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Game/Field"]
