@@ -1,6 +1,6 @@
 extends Control
 
-
+signal tileClicked;
 @export var debugVisually : bool = true;
 
 enum tileTypes {EMPTY, ENEMY, KEY, MARKED};
@@ -11,6 +11,7 @@ const DOUBLETAP_DELAY : float = 0.25;
 var doubleTapTime : float = DOUBLETAP_DELAY;
 var fingerDown : bool = false;
 var covered : bool = true;
+var id : int = 0;
 
 var colors : Array = [
 	Color( 0,0,0), #black
@@ -25,11 +26,14 @@ func _ready() -> void:
 	$countEnemy.visible = false;
 	$Count2.visible = false;
 	$countKey.visible = false;
-	
-	
-	
+
 	pass # Replace with function body.
 
+func setId( val:int ):
+	id = val;
+	$id.text = str(id);
+	
+func getId()->int: return id;
 #00 == blank
 #01-08 == enemy count
 #10-80 == key count
@@ -72,11 +76,10 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			fingerDown = false;
 			if (doubleTapTime >= 0 ):
 				if (covered):
-					covered = false;
-					$TitleCovered.visible = false;
-					$TitleRevealed.visible = true;
-				#self.modulate = colors[GlobalGame.getFlag()];
-				#randomColor();
+					emit_signal("tileClicked", self);
+					#covered = false;
+					#$TitleCovered.visible = false;
+					#$TitleRevealed.visible = true;
 
 func randomColor():
 	$ColorRect.color = Color(randf(),randf(),randf());

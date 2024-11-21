@@ -140,8 +140,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_rx2md")
 grid = NodePath("ScrollContainer/GridContainer")
-enemyCount = 30
-keyCount = 6
+enemyCount = 5
+keyCount = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Game/Field"]
 layout_mode = 1
@@ -150,8 +150,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_horizontal = 100
+scroll_vertical = 100
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="Game/Field/ScrollContainer"]
+custom_minimum_size = Vector2(1800, 1920)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
