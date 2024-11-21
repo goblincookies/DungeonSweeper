@@ -6,7 +6,6 @@ signal tileClicked;
 enum tileTypes {EMPTY, ENEMY, KEY, MARKED};
 var thisTileType: tileTypes = tileTypes.EMPTY;
 
-
 const DOUBLETAP_DELAY : float = 0.25;
 var doubleTapTime : float = DOUBLETAP_DELAY;
 var fingerDown : bool = false;
@@ -20,6 +19,7 @@ var colors : Array = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	$Enemy.visible = false;
 	$Empty.visible = false;
 	$Key.visible = false;
@@ -34,13 +34,19 @@ func setId( val:int ):
 	$id.text = str(id);
 	
 func getId()->int: return id;
+func getTileType()->tileTypes: return thisTileType;
+func isCovered()->bool:return covered;
 #00 == blank
 #01-08 == enemy count
 #10-80 == key count
 #
 #100 == enemy
 #200 == key
-
+func flip():
+	covered = false;
+	$TitleRevealed.visible = !covered;
+	$TitleCovered.visible = covered;
+	
 func setValue( id ):
 	match(id):
 		0:

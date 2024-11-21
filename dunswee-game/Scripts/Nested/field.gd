@@ -41,58 +41,40 @@ func setupField( tile:Control ):
 	var c : int = 0;
 	var xMin:int = 0;
 	var xMax:int = 3;
-	
+
 	n = tile.getId();
-	print("id",n);
 	xMax = 7;
 #		IF LEFT CUTS OFF
-	if( ceil((n-3)/yHeight)< ceil(n/yHeight)): xMin =1;
-	if( ceil((n-2)/yHeight)< ceil(n/yHeight)): xMin =2;
-	if( ceil((n-1)/yHeight)< ceil(n/yHeight)): xMin =3;
-	
-#		IF RIGHT CUTS OFF
-	if( ceil((n+3)/yHeight)> ceil(n/yHeight)): xMax =6;
-	if( ceil((n+2)/yHeight)> ceil(n/yHeight)): xMax =5;
-	if( ceil((n+1)/yHeight)> ceil(n/yHeight)): xMax =4;
-	
+	for i in range(3,0,-1):
+#		LEFT/RIGHT BOUNDS
+		if(isOutOfBoundsHoriz(n,-i)):xMin=4-i;
+		if(isOutOfBoundsHoriz(n,i)):xMax=3+i;
 
-	print("initial temp array size", tempArray.size())
-	
+
 	var landingArray:Array = [];
 	
 	for x in range(xMin,xMax):
 		for y in range(0,7):
 			c = n+(-3+x)+(-(3*yHeight)+(yHeight*y));
 			if ( c >= 0 and c < tempArray.size()):
-				print("popping at ", c)
 				landingArray.append(c);
-				#tempArray.pop_at( c );
-	print(landingArray);
 	landingArray.sort();
 	landingArray.reverse();
-	print(landingArray);
 	for val in landingArray:
 		tempArray.pop_at( val );
-	
-	print("new temp array size",tempArray.size())
+
 
 	for i in range(enemyCount):
-#		randi() % 20      # Returns random integer between 0 and 19
 		tempVal = randi()%tempArray.size();
 		enemyArray.append( tempArray[tempVal]);
 		tempArray.pop_at( tempVal );
 	
 	for i in range(keyCount):
-#		randi() % 20      # Returns random integer between 0 and 19
 		keyArray.append( tempArray.pop_at( randi()%tempArray.size() ));
 	
-	print("enemies at", enemyArray);
-	print("keys at", keyArray);
 	dataArray.resize(grid.get_child_count());
 	dataArray.fill( 0 );
-	
 
-	
 	for i in range(enemyArray.size()):
 		n = enemyArray[i];
 #		ADD ENEMY
@@ -123,10 +105,9 @@ func setupField( tile:Control ):
 		xMin = 0;
 		xMax = 3;
 		
-#		IF LEFT CUTS OFF
-		if( ceil((n-1)/yHeight)< ceil(n/yHeight)): xMin +=1;
-#		IF RIGHT CUTS OFF
-		if( ceil((n+1)/yHeight)> ceil(n/yHeight)): xMax -=1;
+#		IF LEFT/RIGHT CUTS OFF
+		if (isOutOfBoundsHoriz(n, -1)): xMin +=1;
+		if (isOutOfBoundsHoriz(n, 1)): xMax -=1;
 
 #		ADD COUNTS
 		for x in range(xMin,xMax):
@@ -143,12 +124,50 @@ func setupField( tile:Control ):
 	
 	print(dataArray)
 
+func isOutOfBoundsHoriz( id, step ):
+	if ((id+step<0) or (id+step>=dataArray.size())): return true;
+	return (ceil((id+step)/yHeight)< ceil(id/yHeight));
+func isOutOfBoundsVert( id, step ):
+	var stepSize = step*yHeight
+	return !(id + stepSize >= 0 and id + stepSize < dataArray.size());
 
 func tileClicked( tile:Control ):
 	print(tile, "clicked")
 	if (blankField):
 		blankField = false;
 		setupField( tile );
+#	REVEAL
+	tile.flip();
+	floodFill(tile.getId(), true);
+	
+
+func floodFill(id, isStartingTile):
+	print("filling :)", id);
+	var l_tile:Control = grid.get_child(id);
+	#print("tile type", l_tile.getTileType(), l_tile.getTileType() <= 0, l_tile.isCovered())
+	if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile)):
+		grid.get_child(id).flip();
+		if (!isOutOfBoundsHoriz(id,-1)): floodFill(id-1, false);
+		if (!isOutOfBoundsHoriz(id, 1)): floodFill(id+1, false);
+		if (!isOutOfBoundsVert(id,-1)): floodFill(id-yHeight, false);
+		if (!isOutOfBoundsVert(id, 1)): floodFill(id+yHeight, false);
+		
+		
+		
+		#floodFill( id );
+#void floodFill( int pos ) {
+   #if ( btn( pos ) isFillable ) {
+	   #fillBtn(pos);
+	   #floodFill( pos+1 );
+	   #floodFill( pos-1 );
+	   #floodFill( pos+10 );
+	   #floodFill( pos-10 );
+   #} else {
+	   #return;
+   #}
+#}
+
+	pass
 
 func registerTiles():
 	print("registering tiles")
