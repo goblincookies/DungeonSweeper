@@ -3,7 +3,7 @@ extends Control
 signal tileClicked;
 @export var debugVisually : bool = true;
 
-enum tileTypes {EMPTY, ENEMY, KEY, MARKED};
+enum tileTypes {EMPTY, MARKED, ENEMY, KEY};
 var thisTileType: tileTypes = tileTypes.EMPTY;
 
 const DOUBLETAP_DELAY : float = 0.25;

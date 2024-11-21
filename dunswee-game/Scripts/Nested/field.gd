@@ -24,6 +24,9 @@ func _ready() -> void:
 
 
 func setupField( tile:Control ):
+	dataArray.resize(grid.get_child_count());
+	dataArray.fill( 0 );
+
 	var tempArray : Array = [];
 	var enemyArray: Array = [];
 	var keyArray: Array = [];
@@ -47,21 +50,28 @@ func setupField( tile:Control ):
 #		IF LEFT CUTS OFF
 	for i in range(3,0,-1):
 #		LEFT/RIGHT BOUNDS
-		if(isOutOfBoundsHoriz(n,-i)):xMin=4-i;
-		if(isOutOfBoundsHoriz(n,i)):xMax=3+i;
-
+		print("-",i,", ", isOutBoundsHoriz(n,-i))
+		print("+",i,", ", isOutBoundsHoriz(n,+i))
+			
+		if(isOutBoundsHoriz(n,-i)):xMin=4-i;
+		if(isOutBoundsHoriz(n,i)):xMax=3+i;
 
 	var landingArray:Array = [];
-	
+	print("x's ", xMin, xMax)
 	for x in range(xMin,xMax):
 		for y in range(0,7):
 			c = n+(-3+x)+(-(3*yHeight)+(yHeight*y));
 			if ( c >= 0 and c < tempArray.size()):
 				landingArray.append(c);
+	print("old size ", tempArray.size())
+
 	landingArray.sort();
 	landingArray.reverse();
 	for val in landingArray:
 		tempArray.pop_at( val );
+	
+	
+	print("new Size ", tempArray.size())
 
 
 	for i in range(enemyCount):
@@ -72,8 +82,7 @@ func setupField( tile:Control ):
 	for i in range(keyCount):
 		keyArray.append( tempArray.pop_at( randi()%tempArray.size() ));
 	
-	dataArray.resize(grid.get_child_count());
-	dataArray.fill( 0 );
+
 
 	for i in range(enemyArray.size()):
 		n = enemyArray[i];
@@ -106,8 +115,8 @@ func setupField( tile:Control ):
 		xMax = 3;
 		
 #		IF LEFT/RIGHT CUTS OFF
-		if (isOutOfBoundsHoriz(n, -1)): xMin +=1;
-		if (isOutOfBoundsHoriz(n, 1)): xMax -=1;
+		if (isOutBoundsHoriz(n, -1)): xMin +=1;
+		if (isOutBoundsHoriz(n, 1)): xMax -=1;
 
 #		ADD COUNTS
 		for x in range(xMin,xMax):
@@ -122,11 +131,14 @@ func setupField( tile:Control ):
 	for i in range(dataArray.size()):
 		grid.get_child(i).setValue( dataArray[i] );
 	
+	enemyArray.sort()
+	print(enemyArray)
 	print(dataArray)
 
-func isOutOfBoundsHoriz( id, step ):
-	if ((id+step<0) or (id+step>=dataArray.size())): return true;
+func isOutBoundsHoriz( id, step ):
+	if ((id+step < 0) or (id+step>=dataArray.size())): return false;
 	return (ceil((id+step)/yHeight)< ceil(id/yHeight));
+	
 func isOutOfBoundsVert( id, step ):
 	var stepSize = step*yHeight
 	return !(id + stepSize >= 0 and id + stepSize < dataArray.size());
@@ -142,32 +154,18 @@ func tileClicked( tile:Control ):
 	
 
 func floodFill(id, isStartingTile):
-	print("filling :)", id);
 	var l_tile:Control = grid.get_child(id);
 	#print("tile type", l_tile.getTileType(), l_tile.getTileType() <= 0, l_tile.isCovered())
+	
 	if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile)):
 		grid.get_child(id).flip();
-		if (!isOutOfBoundsHoriz(id,-1)): floodFill(id-1, false);
-		if (!isOutOfBoundsHoriz(id, 1)): floodFill(id+1, false);
+		if (!isOutBoundsHoriz(id,-1)): floodFill(id-1, false);
+		if (!isOutBoundsHoriz(id, 1)): floodFill(id+1, false);
 		if (!isOutOfBoundsVert(id,-1)): floodFill(id-yHeight, false);
 		if (!isOutOfBoundsVert(id, 1)): floodFill(id+yHeight, false);
-		
-		
-		
-		#floodFill( id );
-#void floodFill( int pos ) {
-   #if ( btn( pos ) isFillable ) {
-	   #fillBtn(pos);
-	   #floodFill( pos+1 );
-	   #floodFill( pos-1 );
-	   #floodFill( pos+10 );
-	   #floodFill( pos-10 );
-   #} else {
-	   #return;
-   #}
-#}
+	elif (l_tile.getTileType() <= 1 and (l_tile.isCovered() or isStartingTile)):
+		grid.get_child(id).flip();
 
-	pass
 
 func registerTiles():
 	print("registering tiles")
