@@ -3,6 +3,7 @@ extends Control
 @export var grid : GridContainer
 @export var enemyCount : int = 0;
 @export var keyCount : int = 0;
+@export var lowerBounds : int = 0;
 
 var dataArray : Array = [];
 var yHeight : int = 0;
@@ -118,7 +119,7 @@ func setupField( tile:Control ):
 		if (isOutBoundsHoriz(n, -1)): xMin +=1;
 		if (isOutBoundsHoriz(n, 1)): xMax -=1;
 
-#		ADD COUNTS
+#		ADD COUNTS -- BUG!!!!
 		for x in range(xMin,xMax):
 			for y in range(0,3):
 				c = n+(-1+x)+(-yHeight+(yHeight*y));
@@ -154,17 +155,18 @@ func tileClicked( tile:Control ):
 	
 
 func floodFill(id, isStartingTile):
-	var l_tile:Control = grid.get_child(id);
-	#print("tile type", l_tile.getTileType(), l_tile.getTileType() <= 0, l_tile.isCovered())
-	
-	if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile)):
-		grid.get_child(id).flip();
-		if (!isOutBoundsHoriz(id,-1)): floodFill(id-1, false);
-		if (!isOutBoundsHoriz(id, 1)): floodFill(id+1, false);
-		if (!isOutOfBoundsVert(id,-1)): floodFill(id-yHeight, false);
-		if (!isOutOfBoundsVert(id, 1)): floodFill(id+yHeight, false);
-	elif (l_tile.getTileType() <= 1 and (l_tile.isCovered() or isStartingTile)):
-		grid.get_child(id).flip();
+	if ((id>= 0) and (id<dataArray.size())):
+		var l_tile:Control = grid.get_child(id);
+		#print("tile type", l_tile.getTileType(), l_tile.getTileType() <= 0, l_tile.isCovered())
+		
+		if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile)):
+			grid.get_child(id).flip();
+			if (!isOutBoundsHoriz(id,-1)): floodFill(id-1, false);
+			if (!isOutBoundsHoriz(id, 1)): floodFill(id+1, false);
+			if (!isOutOfBoundsVert(id,-1)): floodFill(id-yHeight, false);
+			if (!isOutOfBoundsVert(id, 1)): floodFill(id+yHeight, false);
+		elif (l_tile.getTileType() <= 1 and (l_tile.isCovered() or isStartingTile)):
+			grid.get_child(id).flip();
 
 
 func registerTiles():
@@ -173,4 +175,5 @@ func registerTiles():
 	for tile in grid.get_children():
 		tile.tileClicked.connect( tileClicked );
 		tile.setId(i);
+		tile.setLowerBounds(lowerBounds);
 		i+=1;

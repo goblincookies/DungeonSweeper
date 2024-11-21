@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck2qcym61owh1"]
+
+[ext_resource type="Script" path="res://Scripts/ui_test.gd" id="1_4ipug"]
+[ext_resource type="PackedScene" uid="uid://brtngl3qvyxhu" path="res://Scenes/Nested/bttnStart.tscn" id="2_tsf5l"]
+
+[node name="UiTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4ipug")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -142.0
+offset_right = 230.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BttnStart" parent="." instance=ExtResource("2_tsf5l")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -332.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 582.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BttnStart2" parent="." instance=ExtResource("2_tsf5l")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -690.0
+offset_bottom = -690.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]
+[connection signal="clicked" from="BttnStart2" to="." method="_on_bttn_start_clicked"]
