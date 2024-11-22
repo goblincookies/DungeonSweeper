@@ -3,9 +3,13 @@ extends Control
 signal tileClicked;
 @export var debugVisually : bool = true;
 
-enum TileTypes {EMPTY, MARKED, ENEMY, KEY};
-var thisTileType: TileTypes = TileTypes.EMPTY;
+#enum ActionTypes {EMPTY, MARKED, ENEMY, KEY};
+#enum TileTypes {ENEMY, KEY, HEALTH};
 enum FlagTypes {UNMARKED, ENEMY, KEY};
+enum ActionTypes {BASIC, FLAGENEMY, FLAGKEY, ESCAPE};
+enum TileTypes {EMPTY, MARKED, ENEMY, KEY, HEALTH};
+
+var thisTileType: TileTypes = TileTypes.EMPTY;
 var flag: FlagTypes = FlagTypes.UNMARKED;
 var flagColorKey : Color = Color("#ffff00");
 var flagColorEnemy : Color = Color("#ff0000");
@@ -16,7 +20,7 @@ const DOUBLETAP_DELAY : float = 0.35;
 var doubleTapTime : float = DOUBLETAP_DELAY;
 var fingerDown : bool = false;
 var covered : bool = true;
-var flippable : bool = true;
+var marked : bool = false;
 var id : int = 0;
 var lowerBounds : int = 0;
 
@@ -45,7 +49,8 @@ func setLowerBounds( val:int ): lowerBounds = val;
 func getId()->int: return id;
 func getTileType()->TileTypes: return thisTileType;
 func isCovered()->bool:return covered;
-func isFlippable()->bool:return flippable;
+func isMarked()->bool:return marked;
+func getFlag()->FlagTypes:return flag;
 #00 == blank
 #01-08 == enemy count
 #10-80 == key count
@@ -59,20 +64,27 @@ func flip():
 	$TitleCovered.visible = covered;
 
 func flagTile( type:int ):
-	flag = type;
-	match type:
-		FlagTypes.UNMARKED:
-			flippable = true;
-			self.modulate = flagColorUnmarked;
-			pass
-		FlagTypes.ENEMY:
-			flippable = false;
-			self.modulate = flagColorEnemy;
-			pass
-		FlagTypes.KEY:
-			flippable = false;
-			self.modulate = flagColorKey;
-			pass
+	#if (flag != type):
+	if (type == FlagTypes.UNMARKED):
+		self.modulate = flagColorUnmarked;
+		marked = false;
+		#flag = FlagTypes.UNMARKED;
+	elif (type == flag):
+		marked = !marked;
+	else:
+		marked = true;
+	
+	if (marked):
+		flag = type;
+		match type:
+			FlagTypes.ENEMY:
+				self.modulate = flagColorEnemy;
+			FlagTypes.KEY:
+				self.modulate = flagColorKey;
+	else:
+		flag = FlagTypes.UNMARKED;
+		self.modulate = flagColorUnmarked;
+
 
 func setValue( id ):
 	match(id):

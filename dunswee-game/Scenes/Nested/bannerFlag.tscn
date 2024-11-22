@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://17mpv8r8ao45"]
+
+[ext_resource type="Texture2D" uid="uid://bdv44w1hk2i42" path="res://Assets/Art/Frame.png" id="1_n74tm"]
+[ext_resource type="Script" path="res://Scripts/Nested/bannerFlag.gd" id="1_wlwv3"]
+[ext_resource type="Texture2D" uid="uid://tk600ah0biy7" path="res://Assets/Art/IconHealth.png" id="2_2vvx1"]
+[ext_resource type="Texture2D" uid="uid://ck432w3r2oofd" path="res://Assets/Art/IconKey.png" id="3_hiwge"]
+[ext_resource type="Texture2D" uid="uid://dth1yaaco7hwv" path="res://Assets/Art/IconSkull.png" id="4_n5ek3"]
+
+[node name="bannerFlag" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wlwv3")
+bannerType = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -53.0
+offset_right = 105.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n74tm")
+
+[node name="IconHealth" type="Sprite2D" parent="."]
+position = Vector2(-44, 0)
+texture = ExtResource("2_2vvx1")
+
+[node name="IconKey" type="Sprite2D" parent="."]
+position = Vector2(-44, 0)
+texture = ExtResource("3_hiwge")
+
+[node name="IconSkull" type="Sprite2D" parent="."]
+position = Vector2(-44, 0)
+texture = ExtResource("4_n5ek3")
+
+[node name="Val" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -41.5
+offset_right = 69.0
+offset_bottom = 41.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "99"
+vertical_alignment = 1
