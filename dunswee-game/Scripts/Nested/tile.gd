@@ -3,13 +3,20 @@ extends Control
 signal tileClicked;
 @export var debugVisually : bool = true;
 
-enum tileTypes {EMPTY, MARKED, ENEMY, KEY};
-var thisTileType: tileTypes = tileTypes.EMPTY;
+enum TileTypes {EMPTY, MARKED, ENEMY, KEY};
+var thisTileType: TileTypes = TileTypes.EMPTY;
+enum FlagTypes {UNMARKED, ENEMY, KEY};
+var flag: FlagTypes = FlagTypes.UNMARKED;
+var flagColorKey : Color = Color("#ffff00");
+var flagColorEnemy : Color = Color("#ff0000");
+var flagColorUnmarked : Color = Color("#ffffff");
 
-const DOUBLETAP_DELAY : float = 0.25;
+
+const DOUBLETAP_DELAY : float = 0.35;
 var doubleTapTime : float = DOUBLETAP_DELAY;
 var fingerDown : bool = false;
 var covered : bool = true;
+var flippable : bool = true;
 var id : int = 0;
 var lowerBounds : int = 0;
 
@@ -36,8 +43,9 @@ func setId( val:int ):
 func setLowerBounds( val:int ): lowerBounds = val;
 
 func getId()->int: return id;
-func getTileType()->tileTypes: return thisTileType;
+func getTileType()->TileTypes: return thisTileType;
 func isCovered()->bool:return covered;
+func isFlippable()->bool:return flippable;
 #00 == blank
 #01-08 == enemy count
 #10-80 == key count
@@ -45,23 +53,40 @@ func isCovered()->bool:return covered;
 #100 == enemy
 #200 == key
 func flip():
+	#flagTile(0);
 	covered = false;
 	$TitleRevealed.visible = !covered;
 	$TitleCovered.visible = covered;
-	
+
+func flagTile( type:int ):
+	flag = type;
+	match type:
+		FlagTypes.UNMARKED:
+			flippable = true;
+			self.modulate = flagColorUnmarked;
+			pass
+		FlagTypes.ENEMY:
+			flippable = false;
+			self.modulate = flagColorEnemy;
+			pass
+		FlagTypes.KEY:
+			flippable = false;
+			self.modulate = flagColorKey;
+			pass
+
 func setValue( id ):
 	match(id):
 		0:
-			thisTileType = tileTypes.EMPTY;
+			thisTileType = TileTypes.EMPTY;
 			#if (debugVisually): $Empty.visible = true;
 		100:
-			thisTileType = tileTypes.ENEMY;
+			thisTileType = TileTypes.ENEMY;
 			if (debugVisually): $Enemy.visible = true;
 		200:
-			thisTileType = tileTypes.KEY;
+			thisTileType = TileTypes.KEY;
 			if (debugVisually): $Key.visible = true;
 		_:
-			thisTileType = tileTypes.MARKED;
+			thisTileType = TileTypes.MARKED;
 			
 			if (id%10 > 0 and id/10 > 0):
 #				split

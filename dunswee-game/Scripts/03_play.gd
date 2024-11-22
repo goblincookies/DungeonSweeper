@@ -2,9 +2,11 @@ extends Control
 
 signal initiateSceneChange( sceneIndex:int );
 
-enum ActionTypes {BASIC, ENEMY, KEY}
+enum ActionTypes {BASIC, ENEMY, KEY, ESCAPE};
 var currentAction : ActionTypes = ActionTypes.BASIC;
 
+
+func getCurrentAction()->ActionTypes: return currentAction;
 
 func _on_bttn_start_clicked() -> void:
 	emit_signal("initiateSceneChange",0);
@@ -22,7 +24,7 @@ func _ready() -> void:
 
 
 func _on_bttn_base_game_clicked( clickedButton: Control ) -> void:
-	
+	currentAction = clickedButton.getButtonAction();
 	for bttn in $Buttons.get_children():
 		bttn.setActive(false);
 	

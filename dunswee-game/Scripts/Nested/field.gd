@@ -4,10 +4,11 @@ extends Control
 @export var enemyCount : int = 0;
 @export var keyCount : int = 0;
 @export var lowerBounds : int = 0;
-
+@export var playNode: Control;
 var dataArray : Array = [];
 var yHeight : int = 0;
 var blankField : bool = true;
+enum ActionTypes {BASIC, ENEMY, KEY, ESCAPE};
 #00 == blank
 #01-08 == enemy count
 #10-80 == key count
@@ -115,9 +116,11 @@ func setupField( tile:Control ):
 		xMin = 0;
 		xMax = 3;
 		
-#		IF LEFT/RIGHT CUTS OFF
-		if (isOutBoundsHoriz(n, -1)): xMin +=1;
-		if (isOutBoundsHoriz(n, 1)): xMax -=1;
+
+		#IF LEFT CUTS OFF
+		if( ceil((n-1)/yHeight)< ceil(n/yHeight)): xMin +=1;
+#		IF RIGHT CUTS OFF
+		if( ceil((n+1)/yHeight)> ceil(n/yHeight)): xMax -=1;
 
 #		ADD COUNTS -- BUG!!!!
 		for x in range(xMin,xMax):
@@ -146,12 +149,28 @@ func isOutOfBoundsVert( id, step ):
 
 func tileClicked( tile:Control ):
 	print(tile, "clicked")
-	if (blankField):
-		blankField = false;
-		setupField( tile );
-#	REVEAL
-	tile.flip();
-	floodFill(tile.getId(), true);
+	match playNode.getCurrentAction():
+		ActionTypes.BASIC:
+			if (blankField):
+				blankField = false;
+				setupField( tile );
+		#	REVEAL
+			tile.flagTile(ActionTypes.BASIC);
+			tile.flip();
+			floodFill(tile.getId(), true);
+			
+		ActionTypes.ENEMY:
+			tile.flagTile(ActionTypes.ENEMY);
+			pass
+		ActionTypes.KEY:
+			tile.flagTile(ActionTypes.KEY);
+			
+			pass
+		ActionTypes.ESCAPE:
+			pass
+			
+		
+
 	
 
 func floodFill(id, isStartingTile):
@@ -159,7 +178,8 @@ func floodFill(id, isStartingTile):
 		var l_tile:Control = grid.get_child(id);
 		#print("tile type", l_tile.getTileType(), l_tile.getTileType() <= 0, l_tile.isCovered())
 		
-		if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile)):
+#		and l_tile.isFlippable()
+		if (l_tile.getTileType() <= 0 and (l_tile.isCovered() or isStartingTile) ):
 			grid.get_child(id).flip();
 			if (!isOutBoundsHoriz(id,-1)): floodFill(id-1, false);
 			if (!isOutBoundsHoriz(id, 1)): floodFill(id+1, false);

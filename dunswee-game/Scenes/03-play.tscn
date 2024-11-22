@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kwue07x5nv8p"]
+[gd_scene load_steps=12 format=3 uid="uid://kwue07x5nv8p"]
 
 [ext_resource type="Script" path="res://Scripts/03_play.gd" id="1_e12oe"]
 [ext_resource type="PackedScene" uid="uid://yp2ijcxoo3s5" path="res://Scenes/Nested/tile.tscn" id="2_4mri7"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cmhsd6ng1obf1" path="res://Assets/Art/Frame-Long.png" id="3_4gi6p"]
 [ext_resource type="Texture2D" uid="uid://eewgtu43wbie" path="res://Assets/Art/Buttons.png" id="4_hi10b"]
 [ext_resource type="Script" path="res://Scenes/InputEater.gd" id="6_oxjya"]
-[ext_resource type="PackedScene" uid="uid://ycfv25l0xci6" path="res://Scenes/Nested/bttnBaseGame.tscn" id="7_ptbqm"]
+[ext_resource type="PackedScene" uid="uid://ycfv25l0xci6" path="res://Scenes/Nested/bttnBase.tscn" id="7_ptbqm"]
+[ext_resource type="PackedScene" uid="uid://c6ch020ov7hvr" path="res://Scenes/Nested/bttnEscape.tscn" id="9_jkj8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxc5q"]
 size = Vector2(1080, 440)
@@ -136,7 +137,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.185675, 0.349349, 0.325153, 1)
 
-[node name="Field" type="Control" parent="Game" node_paths=PackedStringArray("grid")]
+[node name="Field" type="Control" parent="Game" node_paths=PackedStringArray("grid", "playNode")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,9 +147,10 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_rx2md")
 grid = NodePath("ScrollContainer/GridContainer")
-enemyCount = 5
+enemyCount = 15
 keyCount = 5
 lowerBounds = 1960
+playNode = NodePath("../..")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Game/Field"]
 custom_minimum_size = Vector2(1080, 1500)
@@ -161,6 +163,7 @@ grow_vertical = 2
 scroll_vertical = 100
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
+scroll_deadzone = 20
 
 [node name="GridContainer" type="GridContainer" parent="Game/Field/ScrollContainer"]
 custom_minimum_size = Vector2(1800, 1920)
@@ -1430,7 +1433,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="BttnBaseGame" parent="Buttons" instance=ExtResource("7_ptbqm")]
+[node name="BttnBaseDig" parent="Buttons" instance=ExtResource("7_ptbqm")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1438,13 +1441,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 367.0
-offset_top = -243.0
+offset_top = -245.0
 offset_right = 367.0
-offset_bottom = -243.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BttnBaseGame2" parent="Buttons" instance=ExtResource("7_ptbqm")]
+[node name="BttnBaseKey" parent="Buttons" instance=ExtResource("7_ptbqm")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1452,14 +1455,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 176.0
-offset_top = -243.0
+offset_top = -245.0
 offset_right = 176.0
-offset_bottom = -243.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 buttonType = 2
 
-[node name="BttnBaseGame3" parent="Buttons" instance=ExtResource("7_ptbqm")]
+[node name="BttnBaseEnemy" parent="Buttons" instance=ExtResource("7_ptbqm")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1467,27 +1470,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -16.0
-offset_top = -243.0
+offset_top = -245.0
 offset_right = -16.0
-offset_bottom = -243.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 buttonType = 1
 
-[node name="BttnBaseGame4" parent="Buttons" instance=ExtResource("7_ptbqm")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -370.0
-offset_top = -243.0
-offset_right = -370.0
-offset_bottom = -243.0
-grow_horizontal = 2
-grow_vertical = 2
-buttonType = 1
+[node name="BttnBaseEscape" parent="Buttons" instance=ExtResource("9_jkj8b")]
+offset_left = -306.0
+offset_top = -245.0
+offset_right = -306.0
+offset_bottom = -245.0
+buttonType = 3
 
 [node name="BttnStart" parent="." instance=ExtResource("2_76oub")]
 visible = false
@@ -1504,8 +1499,8 @@ offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[connection signal="clicked" from="Buttons/BttnBaseGame" to="." method="_on_bttn_base_game_clicked"]
-[connection signal="clicked" from="Buttons/BttnBaseGame2" to="." method="_on_bttn_base_game_clicked"]
-[connection signal="clicked" from="Buttons/BttnBaseGame3" to="." method="_on_bttn_base_game_clicked"]
-[connection signal="clicked" from="Buttons/BttnBaseGame4" to="." method="_on_bttn_base_game_clicked"]
+[connection signal="clicked" from="Buttons/BttnBaseDig" to="." method="_on_bttn_base_game_clicked"]
+[connection signal="clicked" from="Buttons/BttnBaseKey" to="." method="_on_bttn_base_game_clicked"]
+[connection signal="clicked" from="Buttons/BttnBaseEnemy" to="." method="_on_bttn_base_game_clicked"]
+[connection signal="clicked" from="Buttons/BttnBaseEscape" to="." method="_on_bttn_base_game_clicked"]
 [connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]
