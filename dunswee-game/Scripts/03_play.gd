@@ -84,6 +84,7 @@ func _on_field_flagged(type: FlagTypes) -> void:
 
 
 func _on_field_hit(type: TileTypes) -> void:
+	print("hiT!! :(")
 	pass # Replace with function body.
 
 

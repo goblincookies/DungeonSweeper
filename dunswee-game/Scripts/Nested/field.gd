@@ -170,6 +170,8 @@ func tileClicked( tile:Control ):
 		#	REVEAL
 			tile.flagTile(FlagTypes.UNMARKED);
 			#tile.flip();
+			if(tile.getTileType()==TileTypes.ENEMY or tile.getTileType()==TileTypes.KEY):
+				emit_signal("hit", tile.getTileType() );
 			floodFill(tile.getId(), true);
 			
 		ActionTypes.FLAGENEMY:
