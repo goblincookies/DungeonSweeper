@@ -1523,6 +1523,7 @@ wait_time = 0.75
 one_shot = true
 
 [node name="EscapeTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [connection signal="flagged" from="Game/Field" to="." method="_on_field_flagged"]

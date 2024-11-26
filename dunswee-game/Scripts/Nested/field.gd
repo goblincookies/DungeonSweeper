@@ -4,7 +4,7 @@ signal flagged( type:int )
 signal unflagged( type:int )
 signal hit(type:int )
 
-@export var grid : GridContainer
+@export var grid : GridContainer;
 
 @export var lowerBounds : int = 0;
 @export var playNode: Control;
@@ -39,6 +39,31 @@ func _ready() -> void:
 	print(yHeight);
 #	fill blank array wih increasing numbers
 
+func getRemainingEnemies()->Array:
+	if (blankField):
+		blankField = false;
+		setupField( grid.get_child( randi()%(grid.get_child_count()-1) ) );
+
+	var remaining : Array = [];
+	for i in range(enemyArray.size()):
+		var tile : Control = grid.get_child( enemyArray[i] );
+		if !tile.isFlaggedCorrectly():
+#			ADD THE TILE
+			remaining.append(grid.get_child(enemyArray[i]));
+	return remaining;
+
+func getRemainingKeys()->Array:
+	if (blankField):
+		blankField = false;
+		setupField( grid.get_child( randi()%(grid.get_child_count()-1) ) );
+
+	var remaining : Array = [];
+	for i in range(keyArray.size()):
+		var tile : Control = grid.get_child( keyArray[i] );
+		if !tile.isFlaggedCorrectly():
+#			ADD THE TILE
+			remaining.append(grid.get_child(keyArray[i]));
+	return remaining;
 
 func setupField( tile:Control ):
 	dataArray.resize(grid.get_child_count());

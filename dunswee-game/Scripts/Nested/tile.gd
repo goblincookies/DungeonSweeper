@@ -46,6 +46,14 @@ func setId( val:int ):
 	$id.text = str(id);
 func setLowerBounds( val:int ): lowerBounds = val;
 
+func isFlaggedCorrectly()->bool:
+	if (!covered):return true;
+	if (thisTileType == TileTypes.ENEMY):
+		return (flag == FlagTypes.ENEMY)
+	if (thisTileType == TileTypes.KEY):
+		return (flag == FlagTypes.KEY)
+	return false;
+
 func getId()->int: return id;
 func getTileType()->TileTypes: return thisTileType;
 func isCovered()->bool:return covered;

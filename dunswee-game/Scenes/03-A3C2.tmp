@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxc5q"]
 size = Vector2(1080, 440)
 
-[node name="Play" type="Control" node_paths=PackedStringArray("topBanners", "field", "gridContainer")]
+[node name="Play" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,14 +24,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_e12oe")
-topBanners = NodePath("Top/Banners")
-field = NodePath("Game/Field")
-enemyCount = 3
+enemyCount = 15
 keyCount = 3
 healthCount = 12
 startingFlagsEnemy = 15
 startingFlagsKey = 15
-gridContainer = NodePath("Game/Field/ScrollContainer/GridContainer")
 
 [node name="background" type="ColorRect" parent="."]
 visible = false
@@ -176,6 +173,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_vertical = 100
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 scroll_deadzone = 20
@@ -1522,9 +1520,6 @@ one_shot = true
 wait_time = 0.75
 one_shot = true
 
-[node name="EscapeTimer" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="flagged" from="Game/Field" to="." method="_on_field_flagged"]
 [connection signal="hit" from="Game/Field" to="." method="_on_field_hit"]
 [connection signal="unflagged" from="Game/Field" to="." method="_on_field_unflagged"]
@@ -1535,4 +1530,3 @@ one_shot = true
 [connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]
 [connection signal="timeout" from="GameEndTimer" to="." method="_on_game_end_timer_timeout"]
 [connection signal="timeout" from="StallStart" to="Game/Field" method="_on_stall_start_timeout"]
-[connection signal="timeout" from="EscapeTimer" to="." method="_on_escape_timer_timeout"]
