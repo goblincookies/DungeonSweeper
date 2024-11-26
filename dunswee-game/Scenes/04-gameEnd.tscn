@@ -1,0 +1,230 @@
+[gd_scene load_steps=4 format=3 uid="uid://8le6b7i8ui3s"]
+
+[ext_resource type="Script" path="res://Scripts/04_gameEnd.gd" id="1_ju1l8"]
+[ext_resource type="Texture2D" uid="uid://d3dfd1af8igvh" path="res://Assets/Art/tut-1.png" id="2_g4lwj"]
+[ext_resource type="PackedScene" uid="uid://brtngl3qvyxhu" path="res://Scenes/Nested/bttnStart.tscn" id="8_nudsn"]
+
+[node name="GameEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ju1l8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.209317, 0.335502, 0.384554, 1)
+
+[node name="Pages" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Lost" type="Control" parent="Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-1" type="Sprite2D" parent="Pages/Lost"]
+visible = false
+position = Vector2(545, 961)
+texture = ExtResource("2_g4lwj")
+
+[node name="Label" type="Label" parent="Pages/Lost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = -623.0
+offset_right = 413.5
+offset_bottom = -396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "You Lost :("
+
+[node name="Label2" type="Label" parent="Pages/Lost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = -180.0
+offset_right = 413.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "Again?"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Pages/Lost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = 429.0
+offset_right = 413.5
+offset_bottom = 656.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="BttnAgain" parent="Pages/Lost" instance=ExtResource("8_nudsn")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 120.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BttnQuit" parent="Pages/Lost" instance=ExtResource("8_nudsn")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 358.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Won" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="tut-1" type="Sprite2D" parent="Pages/Won"]
+visible = false
+position = Vector2(545, 961)
+texture = ExtResource("2_g4lwj")
+
+[node name="Label" type="Label" parent="Pages/Won"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = -623.0
+offset_right = 413.5
+offset_bottom = -396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "You Won!!"
+
+[node name="Label2" type="Label" parent="Pages/Won"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = -180.0
+offset_right = 413.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "Again?"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Pages/Won"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = 429.0
+offset_right = 413.5
+offset_bottom = 656.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 166
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="BttnNext" parent="Pages/Won" instance=ExtResource("8_nudsn")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 120.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BttnQuit" parent="Pages/Won" instance=ExtResource("8_nudsn")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 358.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BttnStart2" parent="." instance=ExtResource("8_nudsn")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="clicked" from="Pages/Lost/BttnAgain" to="." method="_on_bttn_again_clicked"]
+[connection signal="clicked" from="Pages/Lost/BttnQuit" to="." method="_on_bttn_quit_clicked"]
+[connection signal="clicked" from="Pages/Won/BttnNext" to="." method="_on_bttn_next_clicked"]
+[connection signal="clicked" from="Pages/Won/BttnQuit" to="." method="_on_bttn_quit_clicked"]
+[connection signal="clicked" from="BttnStart2" to="." method="_on_bttn_start_clicked"]

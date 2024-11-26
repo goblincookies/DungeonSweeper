@@ -30,3 +30,6 @@ func adjustBanner( type:FlagTypes, amount:int )->void:
 			$bannerEnemy.adjustVal(amount);
 		FlagTypes.KEY:
 			$bannerKey.adjustVal(amount);
+
+func updateHealth( totalHealthRemaining: int )->void:
+	$bannerHealth.setValue( totalHealthRemaining );

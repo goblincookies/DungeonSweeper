@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Nested/field.gd" id="2_rx2md"]
 [ext_resource type="PackedScene" uid="uid://17mpv8r8ao45" path="res://Scenes/Nested/bannerFlag.tscn" id="3_4djng"]
 [ext_resource type="Texture2D" uid="uid://eewgtu43wbie" path="res://Assets/Art/Buttons.png" id="4_hi10b"]
-[ext_resource type="Script" path="res://Scenes/InputEater.gd" id="6_oxjya"]
+[ext_resource type="Script" path="res://Scripts/InputEater.gd" id="6_oxjya"]
 [ext_resource type="PackedScene" uid="uid://ycfv25l0xci6" path="res://Scenes/Nested/bttnBase.tscn" id="7_ptbqm"]
 [ext_resource type="PackedScene" uid="uid://c6ch020ov7hvr" path="res://Scenes/Nested/bttnEscape.tscn" id="9_jkj8b"]
 
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_e12oe")
-enemyCount = 5
+enemyCount = 15
 keyCount = 3
 healthCount = 12
 startingFlagsEnemy = 15
@@ -1512,6 +1512,14 @@ offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="GameEndTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StallStart" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
 [connection signal="flagged" from="Game/Field" to="." method="_on_field_flagged"]
 [connection signal="hit" from="Game/Field" to="." method="_on_field_hit"]
 [connection signal="unflagged" from="Game/Field" to="." method="_on_field_unflagged"]
@@ -1520,3 +1528,5 @@ grow_vertical = 0
 [connection signal="clicked" from="Buttons/BttnBaseEnemy" to="." method="_on_bttn_base_game_clicked"]
 [connection signal="clicked" from="Buttons/BttnBaseEscape" to="." method="_on_bttn_base_game_clicked"]
 [connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]
+[connection signal="timeout" from="GameEndTimer" to="." method="_on_game_end_timer_timeout"]
+[connection signal="timeout" from="StallStart" to="Game/Field" method="_on_stall_start_timeout"]

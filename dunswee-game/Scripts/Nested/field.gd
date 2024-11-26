@@ -9,7 +9,7 @@ signal hit(type:int )
 @export var lowerBounds : int = 0;
 @export var playNode: Control;
 
-
+var readyToPlay : int = false;
 var dataArray : Array = [];
 var enemyArray: Array = [];
 var keyArray: Array = [];
@@ -28,6 +28,7 @@ var keyCount : int = 0;
 #200 == key
 
 func _ready() -> void:
+	$"../../StallStart".start();
 	enemyCount = playNode.getCount(TileTypes.ENEMY);
 	keyCount = playNode.getCount(TileTypes.KEY);
 
@@ -161,39 +162,38 @@ func isOutOfBoundsVert( id, step ):
 	return !(id + stepSize >= 0 and id + stepSize < dataArray.size());
 
 func tileClicked( tile:Control ):
-	print(tile, "clicked")
-	match playNode.getCurrentAction():
-		ActionTypes.BASIC:
-			if (blankField):
-				blankField = false;
-				setupField( tile );
-		#	REVEAL
-			tile.flagTile(FlagTypes.UNMARKED);
-			#tile.flip();
-			if(tile.getTileType()==TileTypes.ENEMY or tile.getTileType()==TileTypes.KEY):
-				emit_signal("hit", tile.getTileType() );
-			floodFill(tile.getId(), true);
-			
-		ActionTypes.FLAGENEMY:
-			if (tile.getFlag() == FlagTypes.ENEMY ): emit_signal("unflagged", FlagTypes.ENEMY);
-			if(playNode.hasFlagsRemaining(FlagTypes.ENEMY)):
-				if (tile.getFlag() != FlagTypes.ENEMY ): emit_signal("flagged", FlagTypes.ENEMY);
-				if (tile.getFlag() == FlagTypes.KEY): emit_signal("unflagged", FlagTypes.KEY);
-				tile.flagTile(FlagTypes.ENEMY);
-
-		ActionTypes.FLAGKEY:
-			if (tile.getFlag() == FlagTypes.KEY ): emit_signal("unflagged", FlagTypes.KEY);
-			if(playNode.hasFlagsRemaining(FlagTypes.KEY)):
-				if (tile.getFlag() != FlagTypes.KEY ): emit_signal("flagged", FlagTypes.KEY);
-				if (tile.getFlag() == FlagTypes.ENEMY): emit_signal("unflagged", FlagTypes.ENEMY);
-				tile.flagTile(FlagTypes.KEY);
-
-		ActionTypes.ESCAPE:
-			pass
-			
-		
-
 	
+	if (readyToPlay):
+		#print(tile, "clicked")
+		match playNode.getCurrentAction():
+			ActionTypes.BASIC:
+				if (blankField):
+					blankField = false;
+					setupField( tile );
+			#	REVEAL
+				if(playNode.isAlive()):
+					tile.flagTile(FlagTypes.UNMARKED);
+					#tile.flip();
+					if(tile.getTileType()==TileTypes.ENEMY or tile.getTileType()==TileTypes.KEY):
+						emit_signal("hit", tile.getTileType() );
+					floodFill(tile.getId(), true);
+				
+			ActionTypes.FLAGENEMY:
+				if (tile.getFlag() == FlagTypes.ENEMY ): emit_signal("unflagged", FlagTypes.ENEMY);
+				if(playNode.hasFlagsRemaining(FlagTypes.ENEMY)):
+					if (tile.getFlag() != FlagTypes.ENEMY ): emit_signal("flagged", FlagTypes.ENEMY);
+					if (tile.getFlag() == FlagTypes.KEY): emit_signal("unflagged", FlagTypes.KEY);
+					tile.flagTile(FlagTypes.ENEMY);
+
+			ActionTypes.FLAGKEY:
+				if (tile.getFlag() == FlagTypes.KEY ): emit_signal("unflagged", FlagTypes.KEY);
+				if(playNode.hasFlagsRemaining(FlagTypes.KEY)):
+					if (tile.getFlag() != FlagTypes.KEY ): emit_signal("flagged", FlagTypes.KEY);
+					if (tile.getFlag() == FlagTypes.ENEMY): emit_signal("unflagged", FlagTypes.ENEMY);
+					tile.flagTile(FlagTypes.KEY);
+
+			ActionTypes.ESCAPE:
+				pass
 
 func floodFill(id, isStartingTile):
 	if ((id>= 0) and (id<dataArray.size())):
@@ -202,7 +202,7 @@ func floodFill(id, isStartingTile):
 		
 #		and l_tile.isMarked()
 		if (isStartingTile) or (!l_tile.isMarked() and l_tile.getTileType() <= 0 and l_tile.isCovered()):
-			print("flipping ", id, ", ", l_tile.isMarked())
+			#print("flipping ", id, ", ", l_tile.isMarked())
 			grid.get_child(id).flip();
 			if (!isOutBoundsHoriz(id,-1)): floodFill(id-1, false);
 			if (!isOutBoundsHoriz(id, 1)): floodFill(id+1, false);
@@ -220,3 +220,9 @@ func registerTiles():
 		tile.setId(i);
 		tile.setLowerBounds(lowerBounds);
 		i+=1;
+
+
+func _on_stall_start_timeout() -> void:
+	print("ready to play!!");
+	readyToPlay = true;
+	pass # Replace with function body.

@@ -2,9 +2,10 @@ extends Node
 
 #enum for explore, flag enemy, flag key
 
-var flag : int = 0
+var level : int = 0
 
-func getFlag()->int: 	return flag;
+func resetLevels()->void:
+	level = 0;
 
-func setFlag( val ):
-	pass
+func nextLevel()->void:
+	level += 1;
