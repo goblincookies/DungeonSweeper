@@ -44,6 +44,9 @@ func _ready() -> void:
 			bttn.setActive(true);
 		else:
 			bttn.setActive(false);
+	
+	topBanners.setupBanners();
+	
 	var tweenScroll : Tween = get_tree().create_tween();
 	tweenScroll.tween_property($Game/Field/ScrollContainer, "scroll_horizontal", 200, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
 	tweenScroll.set_parallel();
