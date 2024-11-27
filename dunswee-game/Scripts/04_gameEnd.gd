@@ -29,13 +29,15 @@ func _ready() -> void:
 		#$Pages.get_child(pageIndex).visible = true;
 
 func _on_bttn_again_clicked() -> void:
-	GlobalGame.resetLevels()
+	GlobalGame.resetLevels();
+	GlobalGame.resetTimer();
 	GlobalGame.setContinue(false);
 	emit_signal("initiateSceneChange",2)
 
 
 func _on_bttn_quit_clicked() -> void:
-	GlobalGame.resetLevels()
+	GlobalGame.resetLevels();
+	GlobalGame.resetTimer();
 	emit_signal("initiateSceneChange",0)
 
 

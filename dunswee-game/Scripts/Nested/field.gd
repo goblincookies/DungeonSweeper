@@ -250,4 +250,5 @@ func registerTiles():
 func _on_stall_start_timeout() -> void:
 	print("ready to play!!");
 	readyToPlay = true;
+	playNode.startTimer();
 	pass # Replace with function body.

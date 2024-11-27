@@ -55,7 +55,10 @@ func _ready() -> void:
 
 func isAlive()->bool:
 	return (remainingHealth>0)
-
+func startTimer()->void:
+	topBanners.startTimer();
+func stopTimer()->void:
+	topBanners.stopTimer();
 func getCount( type:int )->int:
 	match type:
 		TileTypes.ENEMY:
@@ -120,7 +123,9 @@ func _on_bttn_base_game_clicked( clickedButton: Control ) -> void:
 
 		clickedButton.setActive(true);
 
-	if (currentAction == ActionTypes.ESCAPE): checkForWin();
+	if (currentAction == ActionTypes.ESCAPE):
+		checkForWin();
+		stopTimer();
 
 
 
@@ -160,6 +165,7 @@ func _on_field_unflagged(type: TileTypes) -> void:
 func _on_game_end_timer_timeout() -> void:
 	#GlobalGame.setWinStatus( remainingHealth>0)
 	GlobalGame.setHealth(remainingHealth);
+	topBanners.saveTime();
 	print("switching scenes");
 	emit_signal("initiateSceneChange",3);
 
