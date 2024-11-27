@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d1qp24rhv31e6"]
+
+[ext_resource type="Texture2D" uid="uid://6w4h85auk057" path="res://Assets/Sprites/Flies-Idle.png" id="1_y6ed4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smjj2"]
+atlas = ExtResource("1_y6ed4")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsf7q"]
+atlas = ExtResource("1_y6ed4")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g7yp"]
+atlas = ExtResource("1_y6ed4")
+region = Rect2(24, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smjj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsf7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g7yp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

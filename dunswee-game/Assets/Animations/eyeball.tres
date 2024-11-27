@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cc6k5kao52fpy"]
+
+[ext_resource type="Texture2D" uid="uid://bdsty46fat1r2" path="res://Assets/Sprites/Eyeball-Idle.png" id="1_8o022"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq521"]
+atlas = ExtResource("1_8o022")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhuca"]
+atlas = ExtResource("1_8o022")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq521")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhuca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

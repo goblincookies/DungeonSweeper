@@ -1,0 +1,507 @@
+[gd_scene load_steps=41 format=3 uid="uid://dh8tloh033v28"]
+
+[ext_resource type="SpriteFrames" uid="uid://hs5jlp8q66ur" path="res://Assets/Animations/alien.tres" id="1_ta2ax"]
+[ext_resource type="SpriteFrames" uid="uid://bed0nvbp7yht" path="res://Assets/Animations/bats.tres" id="2_wrkg0"]
+[ext_resource type="SpriteFrames" uid="uid://cmquem0vjyk5k" path="res://Assets/Animations/bee.tres" id="3_s2nao"]
+[ext_resource type="SpriteFrames" uid="uid://cd8rd21wlym5b" path="res://Assets/Animations/beetle.tres" id="4_5rw44"]
+[ext_resource type="SpriteFrames" uid="uid://27io47sxatbf" path="res://Assets/Animations/blackhole.tres" id="5_0tw2n"]
+[ext_resource type="SpriteFrames" uid="uid://bu8ld12xsfl4y" path="res://Assets/Animations/boar.tres" id="6_ms687"]
+[ext_resource type="SpriteFrames" uid="uid://b02ioo6wx4ws" path="res://Assets/Animations/bomb.tres" id="7_poslp"]
+[ext_resource type="SpriteFrames" uid="uid://bjtpy3ds2gvps" path="res://Assets/Animations/buzzsaw.tres" id="8_fmmxl"]
+[ext_resource type="SpriteFrames" uid="uid://dpd6yhobmmqwv" path="res://Assets/Animations/cactus.tres" id="9_x38ve"]
+[ext_resource type="SpriteFrames" uid="uid://dm80gipte1d4u" path="res://Assets/Animations/crab.tres" id="10_whydn"]
+[ext_resource type="SpriteFrames" uid="uid://cqcxhx8o6b2cd" path="res://Assets/Animations/crystal.tres" id="11_burtp"]
+[ext_resource type="SpriteFrames" uid="uid://bhyif6mdu56rd" path="res://Assets/Animations/drone.tres" id="12_dkurk"]
+[ext_resource type="SpriteFrames" uid="uid://dknadt1n21u5q" path="res://Assets/GoldenTrout.tres" id="13_otlem"]
+[ext_resource type="SpriteFrames" uid="uid://cs5sy4n12xy8e" path="res://Assets/Animations/duck.tres" id="14_utyv6"]
+[ext_resource type="SpriteFrames" uid="uid://dyx78ijglpo7g" path="res://Assets/Animations/e-slime.tres" id="15_ysh3t"]
+[ext_resource type="SpriteFrames" uid="uid://dimhegj6lkknp" path="res://Assets/Animations/e-spider.tres" id="16_l1vgf"]
+[ext_resource type="SpriteFrames" uid="uid://cc6k5kao52fpy" path="res://Assets/Animations/eyeball.tres" id="17_mo41i"]
+[ext_resource type="SpriteFrames" uid="uid://djg1l6xajiiu" path="res://Assets/Animations/firesprite.tres" id="18_rs0li"]
+[ext_resource type="SpriteFrames" uid="uid://d1qp24rhv31e6" path="res://Assets/Animations/flies.tres" id="19_4oy5a"]
+[ext_resource type="SpriteFrames" uid="uid://dmyd22v5mias" path="res://Assets/Animations/frog.tres" id="20_w67un"]
+[ext_resource type="SpriteFrames" uid="uid://cf44j1oclve04" path="res://Assets/Animations/ghost.tres" id="21_jmwko"]
+[ext_resource type="SpriteFrames" uid="uid://wndxyo07eoyg" path="res://Assets/Animations/gravestone.tres" id="22_ik8n6"]
+[ext_resource type="SpriteFrames" uid="uid://ddt4sdubm4g65" path="res://Assets/Animations/hand.tres" id="23_h11am"]
+[ext_resource type="SpriteFrames" uid="uid://dhwweyg0nmax0" path="res://Assets/Animations/heart.tres" id="24_ji337"]
+[ext_resource type="SpriteFrames" uid="uid://cus6ffhvowr10" path="res://Assets/Animations/hood.tres" id="25_pd6xy"]
+[ext_resource type="SpriteFrames" uid="uid://b5vcba0qh4xb2" path="res://Assets/Animations/jackolantern.tres" id="26_32fl3"]
+[ext_resource type="SpriteFrames" uid="uid://d30euhpbe6ih5" path="res://Assets/Animations/rat.tres" id="27_qxe5v"]
+[ext_resource type="SpriteFrames" uid="uid://c7t0pfhgfq466" path="res://Assets/Animations/robot.tres" id="28_dxfby"]
+[ext_resource type="SpriteFrames" uid="uid://d3syrobs63wet" path="res://Assets/Animations/scientist.tres" id="29_fcrev"]
+[ext_resource type="SpriteFrames" uid="uid://bsymd8gxc8kg1" path="res://Assets/Animations/scorpion.tres" id="30_3sdp2"]
+[ext_resource type="SpriteFrames" uid="uid://ce04uq3mxosho" path="res://Assets/Animations/sentry.tres" id="31_8gn5j"]
+[ext_resource type="SpriteFrames" uid="uid://dgtyhrgqnwlm1" path="res://Assets/Animations/smoke.tres" id="32_bo2an"]
+[ext_resource type="SpriteFrames" uid="uid://dvuilidbsen26" path="res://Assets/Animations/snake.tres" id="33_8hcme"]
+[ext_resource type="SpriteFrames" uid="uid://cv33sxupvqdgv" path="res://Assets/Animations/soldier.tres" id="34_0he34"]
+[ext_resource type="SpriteFrames" uid="uid://pu2lvcvyej31" path="res://Assets/Animations/starfish.tres" id="35_icnl8"]
+[ext_resource type="SpriteFrames" uid="uid://bpf5yfvncrj4b" path="res://Assets/Animations/stars.tres" id="36_k04p2"]
+[ext_resource type="SpriteFrames" uid="uid://8qfgjrv2u7qc" path="res://Assets/Animations/steelball.tres" id="37_h0jo5"]
+[ext_resource type="SpriteFrames" uid="uid://bvfbe1p4y6sl7" path="res://Assets/Animations/torso.tres" id="38_pei5e"]
+[ext_resource type="SpriteFrames" uid="uid://da447sw8xk3a4" path="res://Assets/Animations/worms.tres" id="39_q58rc"]
+[ext_resource type="SpriteFrames" uid="uid://btco4ohgf3faw" path="res://Assets/Animations/zombie.tres" id="40_es8m8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21438, 0.173282, 0.120763, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 30
+columns = 5
+
+[node name="Control" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("1_ta2ax")
+autoplay = "default"
+frame_progress = 0.224279
+
+[node name="Control2" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control2"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("2_wrkg0")
+autoplay = "default"
+frame_progress = 0.669372
+
+[node name="Control3" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control3"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("3_s2nao")
+autoplay = "default"
+frame_progress = 0.474398
+
+[node name="Control4" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control4"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("4_5rw44")
+autoplay = "default"
+frame_progress = 0.21322
+
+[node name="Control6" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control6"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("5_0tw2n")
+autoplay = "default"
+frame_progress = 0.638308
+
+[node name="Control7" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control7"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("6_ms687")
+autoplay = "default"
+frame_progress = 0.0394716
+
+[node name="Control8" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control8"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("7_poslp")
+autoplay = "default"
+frame_progress = 0.417752
+
+[node name="Control9" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control9"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("8_fmmxl")
+autoplay = "default"
+frame_progress = 0.331387
+
+[node name="Control10" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control10"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("9_x38ve")
+autoplay = "default"
+frame_progress = 0.739303
+
+[node name="Control11" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control11"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("10_whydn")
+autoplay = "default"
+frame_progress = 0.368467
+
+[node name="Control12" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control12"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("11_burtp")
+autoplay = "default"
+frame_progress = 0.672211
+
+[node name="Control13" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control13"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("12_dkurk")
+autoplay = "default"
+frame_progress = 0.726679
+
+[node name="Control14" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control14"]
+position = Vector2(60, 60)
+sprite_frames = ExtResource("13_otlem")
+autoplay = "default"
+frame_progress = 0.944646
+
+[node name="Control15" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control15"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("14_utyv6")
+autoplay = "default"
+frame_progress = 0.0164848
+
+[node name="Control16" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control16"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("15_ysh3t")
+autoplay = "default"
+frame_progress = 0.474324
+
+[node name="Control17" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control17"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("16_l1vgf")
+autoplay = "default"
+frame_progress = 0.147514
+
+[node name="Control18" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control18"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("17_mo41i")
+autoplay = "default"
+frame_progress = 0.0397447
+
+[node name="Control19" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control19"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("18_rs0li")
+autoplay = "default"
+frame_progress = 0.790248
+
+[node name="Control20" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control20"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("19_4oy5a")
+autoplay = "default"
+frame_progress = 0.434348
+
+[node name="Control21" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control21"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("20_w67un")
+autoplay = "default"
+frame_progress = 0.654827
+
+[node name="Control22" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control22"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("21_jmwko")
+autoplay = "default"
+frame_progress = 0.118225
+
+[node name="Control23" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control23"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("22_ik8n6")
+autoplay = "default"
+frame_progress = 0.142407
+
+[node name="Control24" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control24"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("23_h11am")
+autoplay = "default"
+frame_progress = 0.0145336
+
+[node name="Control25" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control25"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("24_ji337")
+autoplay = "default"
+frame_progress = 0.121984
+
+[node name="Control26" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control26"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("25_pd6xy")
+autoplay = "default"
+frame_progress = 0.873395
+
+[node name="Control27" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control27"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("26_32fl3")
+autoplay = "default"
+frame_progress = 0.111263
+
+[node name="Control28" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control28"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("27_qxe5v")
+autoplay = "default"
+frame_progress = 0.618848
+
+[node name="Control29" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control29"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("28_dxfby")
+autoplay = "default"
+frame_progress = 0.590491
+
+[node name="Control30" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control30"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("29_fcrev")
+autoplay = "default"
+frame_progress = 0.235536
+
+[node name="Control35" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control35"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("30_3sdp2")
+autoplay = "default"
+frame_progress = 0.987751
+
+[node name="Control31" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control31"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("31_8gn5j")
+autoplay = "default"
+frame_progress = 0.925838
+
+[node name="Control32" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control32"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("32_bo2an")
+autoplay = "default"
+frame_progress = 0.435351
+
+[node name="Control33" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control33"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("33_8hcme")
+autoplay = "default"
+frame_progress = 0.780353
+
+[node name="Control34" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control34"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("34_0he34")
+autoplay = "default"
+frame_progress = 0.047139
+
+[node name="Control36" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control36"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("35_icnl8")
+autoplay = "default"
+frame_progress = 0.522329
+
+[node name="Control37" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control37"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("36_k04p2")
+autoplay = "default"
+frame_progress = 0.49591
+
+[node name="Control38" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control38"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("37_h0jo5")
+autoplay = "default"
+frame_progress = 0.368795
+
+[node name="Control39" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control39"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("38_pei5e")
+autoplay = "default"
+frame_progress = 0.507213
+
+[node name="Control40" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control40"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("39_q58rc")
+autoplay = "default"
+frame_progress = 0.168762
+
+[node name="Control41" type="Control" parent="GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/Control41"]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("40_es8m8")
+autoplay = "default"
+frame_progress = 0.333817

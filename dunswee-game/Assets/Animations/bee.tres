@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cmquem0vjyk5k"]
+
+[ext_resource type="Texture2D" uid="uid://dxvheronxve22" path="res://Assets/Sprites/Bee-Idle.png" id="1_677ul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juwhx"]
+atlas = ExtResource("1_677ul")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1433c"]
+atlas = ExtResource("1_677ul")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juwhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1433c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]

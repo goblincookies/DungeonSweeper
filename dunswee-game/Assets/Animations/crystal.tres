@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://cqcxhx8o6b2cd"]
+
+[ext_resource type="Texture2D" uid="uid://c7h1uk1si54rr" path="res://Assets/Sprites/Crystal-Idle.png" id="1_c4a1o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgtgm"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d53wk"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ldh"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7wo8"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1orsq"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se7ph"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm70r"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(72, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0vug"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(84, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrvs4"]
+atlas = ExtResource("1_c4a1o")
+region = Rect2(96, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgtgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d53wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ldh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7wo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1orsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se7ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm70r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0vug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrvs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

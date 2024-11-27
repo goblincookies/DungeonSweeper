@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d3syrobs63wet"]
+
+[ext_resource type="Texture2D" uid="uid://jibmckdwljtt" path="res://Assets/Sprites/Scientist-Idle.png" id="1_drsf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wn3t"]
+atlas = ExtResource("1_drsf4")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acra2"]
+atlas = ExtResource("1_drsf4")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60yk2"]
+atlas = ExtResource("1_drsf4")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goefe"]
+atlas = ExtResource("1_drsf4")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wn3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acra2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60yk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goefe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

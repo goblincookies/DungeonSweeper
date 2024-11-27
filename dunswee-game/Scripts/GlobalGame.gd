@@ -8,7 +8,7 @@ var health:int = 0;
 var continuing : bool = false;
 var time : float = 0.0;
 
-func resetLevels()->void:level = 0;
+func resetLevels()->void:level = 1;
 func resetTimer()->void:time = 0;
 func nextLevel()->void:level += 1;
 func getLevel()->int:return level;

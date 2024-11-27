@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dmyd22v5mias"]
+
+[ext_resource type="Texture2D" uid="uid://br5pmsx7k0atw" path="res://Assets/Sprites/Frog-Idle.png" id="1_bxepq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qegic"]
+atlas = ExtResource("1_bxepq")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77cor"]
+atlas = ExtResource("1_bxepq")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qegic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77cor")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

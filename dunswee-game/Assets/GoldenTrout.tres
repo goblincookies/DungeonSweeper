@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dknadt1n21u5q"]
+
+[ext_resource type="Texture2D" uid="uid://bo2oeucjsvo42" path="res://Assets/Art/GoldenTrout.png" id="1_bhsuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc577"]
+atlas = ExtResource("1_bhsuo")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdjrg"]
+atlas = ExtResource("1_bhsuo")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60bfe"]
+atlas = ExtResource("1_bhsuo")
+region = Rect2(240, 0, 120, 120)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc577")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdjrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60bfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]

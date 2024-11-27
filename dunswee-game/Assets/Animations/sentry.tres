@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ce04uq3mxosho"]
+
+[ext_resource type="Texture2D" uid="uid://bokibl0c7v7c8" path="res://Assets/Sprites/Sentry-Idle.png" id="1_nyy6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj2l6"]
+atlas = ExtResource("1_nyy6a")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bssil"]
+atlas = ExtResource("1_nyy6a")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2a7r"]
+atlas = ExtResource("1_nyy6a")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7asj"]
+atlas = ExtResource("1_nyy6a")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj2l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bssil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2a7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7asj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]

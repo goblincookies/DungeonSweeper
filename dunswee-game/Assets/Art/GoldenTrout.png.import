@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctx217201rt8l"
-path="res://.godot/imported/Hand-Idle .png-1d5c29d867f3dc4932a09e6d69720651.ctex"
+uid="uid://bo2oeucjsvo42"
+path="res://.godot/imported/GoldenTrout.png-2b543c76e3ee1583e2e6897c41bda8b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Hand-Idle .png"
-dest_files=["res://.godot/imported/Hand-Idle .png-1d5c29d867f3dc4932a09e6d69720651.ctex"]
+source_file="res://Assets/Art/GoldenTrout.png"
+dest_files=["res://.godot/imported/GoldenTrout.png-2b543c76e3ee1583e2e6897c41bda8b7.ctex"]
 
 [params]
 

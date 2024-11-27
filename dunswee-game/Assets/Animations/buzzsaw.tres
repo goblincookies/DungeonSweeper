@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bjtpy3ds2gvps"]
+
+[ext_resource type="Texture2D" uid="uid://crl56iwtynnmn" path="res://Assets/Sprites/Buzzsaw-Idle.png" id="1_71gay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv8ej"]
+atlas = ExtResource("1_71gay")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3srye"]
+atlas = ExtResource("1_71gay")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt5cw"]
+atlas = ExtResource("1_71gay")
+region = Rect2(24, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv8ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3srye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt5cw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

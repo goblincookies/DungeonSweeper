@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://27io47sxatbf"]
+
+[ext_resource type="Texture2D" uid="uid://41d7v7nhorlv" path="res://Assets/Sprites/Blackhole-Idle.png" id="1_8ahv8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5ofd"]
+atlas = ExtResource("1_8ahv8")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfuje"]
+atlas = ExtResource("1_8ahv8")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x45g4"]
+atlas = ExtResource("1_8ahv8")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exng2"]
+atlas = ExtResource("1_8ahv8")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5ofd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfuje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x45g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exng2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

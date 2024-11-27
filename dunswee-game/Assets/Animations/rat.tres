@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d30euhpbe6ih5"]
+
+[ext_resource type="Texture2D" uid="uid://cijnbwqslvfvb" path="res://Assets/Sprites/Rat-Idle.png" id="1_y6n2w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fovqj"]
+atlas = ExtResource("1_y6n2w")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjlh4"]
+atlas = ExtResource("1_y6n2w")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsoo4"]
+atlas = ExtResource("1_y6n2w")
+region = Rect2(24, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fovqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjlh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsoo4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

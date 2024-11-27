@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bsymd8gxc8kg1"]
+
+[ext_resource type="Texture2D" uid="uid://dgh1hbqqfmu45" path="res://Assets/Sprites/Scorpion-Idle.png" id="1_4jq3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy8cy"]
+atlas = ExtResource("1_4jq3a")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p0qf"]
+atlas = ExtResource("1_4jq3a")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yufv"]
+atlas = ExtResource("1_4jq3a")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtt1t"]
+atlas = ExtResource("1_4jq3a")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy8cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p0qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yufv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtt1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]

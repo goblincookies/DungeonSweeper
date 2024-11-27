@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dpd6yhobmmqwv"]
+
+[ext_resource type="Texture2D" uid="uid://74b3v61xdwhc" path="res://Assets/Sprites/Cactus-Idle.png" id="1_bsuhu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sctg8"]
+atlas = ExtResource("1_bsuhu")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysgub"]
+atlas = ExtResource("1_bsuhu")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msl7l"]
+atlas = ExtResource("1_bsuhu")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lejw"]
+atlas = ExtResource("1_bsuhu")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sctg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysgub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msl7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lejw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

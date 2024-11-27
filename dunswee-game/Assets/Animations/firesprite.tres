@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://djg1l6xajiiu"]
+
+[ext_resource type="Texture2D" uid="uid://daosmcqskfa8n" path="res://Assets/Sprites/FireSprite-Idle.png" id="1_fbrdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40c4v"]
+atlas = ExtResource("1_fbrdu")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v7ur"]
+atlas = ExtResource("1_fbrdu")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcaxu"]
+atlas = ExtResource("1_fbrdu")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1ph6"]
+atlas = ExtResource("1_fbrdu")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40c4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v7ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcaxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1ph6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

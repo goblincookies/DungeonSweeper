@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://wndxyo07eoyg"]
+
+[ext_resource type="Texture2D" uid="uid://p0re1jss8ssb" path="res://Assets/Sprites/Gravestone-Idle.png" id="1_m1wsb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rilys"]
+atlas = ExtResource("1_m1wsb")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n2i3"]
+atlas = ExtResource("1_m1wsb")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2we02"]
+atlas = ExtResource("1_m1wsb")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vtey"]
+atlas = ExtResource("1_m1wsb")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rilys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n2i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2we02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vtey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

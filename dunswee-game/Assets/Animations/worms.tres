@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://da447sw8xk3a4"]
+
+[ext_resource type="Texture2D" uid="uid://b1tyd4bpaj7yv" path="res://Assets/Sprites/Worms-Idle.png" id="1_ghgy6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxojb"]
+atlas = ExtResource("1_ghgy6")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kqol"]
+atlas = ExtResource("1_ghgy6")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tuwp"]
+atlas = ExtResource("1_ghgy6")
+region = Rect2(24, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxojb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kqol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tuwp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

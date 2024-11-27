@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cs5sy4n12xy8e"]
+
+[ext_resource type="Texture2D" uid="uid://cgvc6ik88skxn" path="res://Assets/Sprites/Duck-Idle.png" id="1_bdffv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glvbu"]
+atlas = ExtResource("1_bdffv")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ac1"]
+atlas = ExtResource("1_bdffv")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glvbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7ac1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

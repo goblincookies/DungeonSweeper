@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bpf5yfvncrj4b"]
+
+[ext_resource type="Texture2D" uid="uid://dn0k0a1n3j76b" path="res://Assets/Sprites/Stars-Idle.png" id="1_wb5ml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbr7s"]
+atlas = ExtResource("1_wb5ml")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuwl6"]
+atlas = ExtResource("1_wb5ml")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jsw2"]
+atlas = ExtResource("1_wb5ml")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxxpj"]
+atlas = ExtResource("1_wb5ml")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbr7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuwl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jsw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxxpj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cf44j1oclve04"]
+
+[ext_resource type="Texture2D" uid="uid://c5iww2pmpdt0" path="res://Assets/Sprites/Ghost-Idle.png" id="1_m1a1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vqm"]
+atlas = ExtResource("1_m1a1y")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr8bg"]
+atlas = ExtResource("1_m1a1y")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5h7s"]
+atlas = ExtResource("1_m1a1y")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhoqn"]
+atlas = ExtResource("1_m1a1y")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4vqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr8bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5h7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhoqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

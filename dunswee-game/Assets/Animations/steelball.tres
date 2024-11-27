@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://8qfgjrv2u7qc"]
+
+[ext_resource type="Texture2D" uid="uid://064thqh1chf5" path="res://Assets/Sprites/SteelBall-Idle.png" id="1_vw2sa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d0n8"]
+atlas = ExtResource("1_vw2sa")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pykix"]
+atlas = ExtResource("1_vw2sa")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d0n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pykix")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

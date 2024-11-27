@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cus6ffhvowr10"]
+
+[ext_resource type="Texture2D" uid="uid://c6fvromc5av66" path="res://Assets/Sprites/Hood-Idle.png" id="1_nxp41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hiy0"]
+atlas = ExtResource("1_nxp41")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ot2"]
+atlas = ExtResource("1_nxp41")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjx5e"]
+atlas = ExtResource("1_nxp41")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwt5g"]
+atlas = ExtResource("1_nxp41")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hiy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ot2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjx5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwt5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

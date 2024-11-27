@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dhwweyg0nmax0"]
+
+[ext_resource type="Texture2D" uid="uid://buke4uc0ra4g4" path="res://Assets/Sprites/Heart-Idle.png" id="1_u07u5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01mmh"]
+atlas = ExtResource("1_u07u5")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds67v"]
+atlas = ExtResource("1_u07u5")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv8to"]
+atlas = ExtResource("1_u07u5")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kknda"]
+atlas = ExtResource("1_u07u5")
+region = Rect2(36, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01mmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds67v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv8to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kknda")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]

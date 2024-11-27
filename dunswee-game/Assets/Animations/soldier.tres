@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cv33sxupvqdgv"]
+
+[ext_resource type="Texture2D" uid="uid://dam7w6dy5vtsd" path="res://Assets/Sprites/Soldier-Idle.png" id="1_xtlfv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uytsr"]
+atlas = ExtResource("1_xtlfv")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avllf"]
+atlas = ExtResource("1_xtlfv")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_use58"]
+atlas = ExtResource("1_xtlfv")
+region = Rect2(24, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uytsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avllf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_use58")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

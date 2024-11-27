@@ -16,9 +16,45 @@ var flagColorEnemy : Color = Color("#ff0000");
 var flagColorUnmarked : Color = Color("#ffffff");
 
 var animations : Array = [
-	"res://Assets/Animations/alien.tres",
-	"res://Assets/Animations/bats.tres",
-	"res://Assets/Animations/boar.tres"
+"res://Assets/Animations/alien.tres",
+"res://Assets/Animations/bats.tres",
+"res://Assets/Animations/bee.tres",
+"res://Assets/Animations/beetle.tres",
+"res://Assets/Animations/blackhole.tres",
+"res://Assets/Animations/boar.tres",
+"res://Assets/Animations/bomb.tres",
+"res://Assets/Animations/buzzsaw.tres",
+"res://Assets/Animations/cactus.tres",
+"res://Assets/Animations/crab.tres",
+"res://Assets/Animations/crystal.tres",
+"res://Assets/Animations/drone.tres",
+"res://Assets/Animations/duck.tres",
+"res://Assets/Animations/e-slime.tres",
+"res://Assets/Animations/e-spider.tres",
+"res://Assets/Animations/eyeball.tres",
+"res://Assets/Animations/firesprite.tres",
+"res://Assets/Animations/flies.tres",
+"res://Assets/Animations/frog.tres",
+"res://Assets/Animations/ghost.tres",
+"res://Assets/Animations/gravestone.tres",
+"res://Assets/Animations/hand.tres",
+"res://Assets/Animations/heart.tres",
+"res://Assets/Animations/hood.tres",
+"res://Assets/Animations/jackolantern.tres",
+"res://Assets/Animations/rat.tres",
+"res://Assets/Animations/robot.tres",
+#"res://Assets/Animations/scientist.tres",
+"res://Assets/Animations/scorpion.tres",
+"res://Assets/Animations/sentry.tres",
+"res://Assets/Animations/smoke.tres",
+"res://Assets/Animations/snake.tres",
+"res://Assets/Animations/soldier.tres",
+"res://Assets/Animations/starfish.tres",
+"res://Assets/Animations/stars.tres",
+"res://Assets/Animations/steelball.tres",
+"res://Assets/Animations/torso.tres",
+"res://Assets/Animations/worms.tres",
+"res://Assets/Animations/zombie.tres",
 ]
 
 const DOUBLETAP_DELAY : float = 0.35;
@@ -44,6 +80,7 @@ func _ready() -> void:
 	$Split.visible = false;
 	$EnemyCount.visible = false;
 	$KeyCount.visible = false;
+	$TitleCovered.visible = true;
 	pass # Replace with function body.
 
 func setId( val:int ):
@@ -106,6 +143,8 @@ func setValue( id ):
 			#if (debugVisually): $Empty.visible = true;
 		100:
 			thisTileType = TileTypes.ENEMY;
+			$Enemy.sprite_frames = load( animations[randi()%animations.size()-1] );
+			$Enemy.play()
 			if (debugVisually): $Enemy.visible = true;
 		200:
 			thisTileType = TileTypes.KEY;
