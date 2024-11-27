@@ -8,7 +8,9 @@ func setupBanners():
 	$bannerHealth.setValue( playNode.getCount(TileTypes.HEALTH));
 	$bannerEnemy.setValue( playNode.getStartingFlags(FlagTypes.ENEMY));
 	$bannerKey.setValue( playNode.getStartingFlags(FlagTypes.KEY));
-	$bannerHealth
+	$Keys.text= "Keys: %0d" % playNode.getCount(TileTypes.KEY);
+	$Enemies.text= "Enemies: %0d" % playNode.getCount(TileTypes.ENEMY);
+	$Level.text= "Level: %0d" % GlobalGame.getLevel();
 
 func startTimer()->void: $bannerTimer.startTimer();
 func saveTime()->void: $bannerTimer.saveTime();

@@ -29,8 +29,6 @@ var keyCount : int = 0;
 
 func _ready() -> void:
 	$"../../StallStart".start();
-	enemyCount = playNode.getCount(TileTypes.ENEMY);
-	keyCount = playNode.getCount(TileTypes.KEY);
 
 	print(grid.get_child_count());
 	registerTiles();
@@ -113,7 +111,9 @@ func setupField( tile:Control ):
 	
 	
 	print("new Size ", tempArray.size())
-
+	
+	enemyCount = playNode.getCount(TileTypes.ENEMY);
+	keyCount = playNode.getCount(TileTypes.KEY);
 
 	for i in range(enemyCount):
 		tempVal = randi()%tempArray.size();

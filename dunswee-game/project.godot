@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="DunSweeGame"
+config/name="BossSweeper"
 run/main_scene="res://Scenes/00-Game.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Assets/Art/Logo.png"

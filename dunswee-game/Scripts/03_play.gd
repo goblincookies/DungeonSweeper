@@ -28,6 +28,8 @@ var currentAction : ActionTypes = ActionTypes.BASIC;
 
 
 func _ready() -> void:
+	enemyCount = enemyCount + GlobalGame.getLevel();
+	keyCount = keyCount + GlobalGame.getLevel();
 	
 	if GlobalGame.isContinuing():
 		healthCount = GlobalGame.getHealth();
@@ -44,7 +46,7 @@ func _ready() -> void:
 			bttn.setActive(true);
 		else:
 			bttn.setActive(false);
-	
+
 	topBanners.setupBanners();
 	
 	var tweenScroll : Tween = get_tree().create_tween();
@@ -59,7 +61,7 @@ func startTimer()->void:
 	topBanners.startTimer();
 func stopTimer()->void:
 	topBanners.stopTimer();
-func getCount( type:int )->int:
+func getCount( type:TileTypes )->int:
 	match type:
 		TileTypes.ENEMY:
 			return enemyCount;
