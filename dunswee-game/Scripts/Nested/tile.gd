@@ -15,6 +15,11 @@ var flagColorKey : Color = Color("#ffff00");
 var flagColorEnemy : Color = Color("#ff0000");
 var flagColorUnmarked : Color = Color("#ffffff");
 
+var animations : Array = [
+	"res://Assets/Animations/alien.tres",
+	"res://Assets/Animations/bats.tres",
+	"res://Assets/Animations/boar.tres"
+]
 
 const DOUBLETAP_DELAY : float = 0.35;
 var doubleTapTime : float = DOUBLETAP_DELAY;

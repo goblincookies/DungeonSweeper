@@ -9,12 +9,12 @@ func _ready() -> void:
 	pageCount = $Pages.get_child_count()
 	for page in $Pages.get_children():
 		page.visible = false;
-	
+	$BttnStart.writeButtonText("Next");
 	$Pages.get_child(pageIndex).visible = true;
 	
 	
 func _on_bttn_start_clicked() -> void:
-	print("clicked")
+	print("clicked");
 	#emit_signal("initiateSceneChange",  1 )
 	$Pages.get_child(pageIndex).visible = false;
 	pageIndex += 1;
@@ -23,3 +23,5 @@ func _on_bttn_start_clicked() -> void:
 		emit_signal("initiateSceneChange",2)
 	else:
 		$Pages.get_child(pageIndex).visible = true;
+		if (pageIndex+1 >= pageCount):
+			$BttnStart.writeButtonText("Play");

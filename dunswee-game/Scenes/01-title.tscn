@@ -36,6 +36,7 @@ offset_top = 481.0
 offset_bottom = 481.0
 grow_horizontal = 2
 grow_vertical = 2
+buttonText = "Start"
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1

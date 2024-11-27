@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bed0nvbp7yht"]
+
+[ext_resource type="Texture2D" uid="uid://bh8r00jw646lx" path="res://Assets/Sprites/Bats-Idle.png" id="1_t7sxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dxgy"]
+atlas = ExtResource("1_t7sxs")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0lbr"]
+atlas = ExtResource("1_t7sxs")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dxgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0lbr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1komgjv8cicc"]
+
+[ext_resource type="FontFile" uid="uid://eqtyiqvdvxgf" path="res://Assets/Themes/AlmendraSC-Regular.ttf" id="1_78ym3"]
+
+[resource]
+default_font = ExtResource("1_78ym3")
+default_font_size = 150

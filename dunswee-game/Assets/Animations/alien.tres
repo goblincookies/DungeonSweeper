@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://hs5jlp8q66ur"]
+
+[ext_resource type="Texture2D" uid="uid://dbtjri0r3n8jk" path="res://Assets/Sprites/Alien-Idle.png" id="1_j6epm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3aim"]
+atlas = ExtResource("1_j6epm")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1k3f"]
+atlas = ExtResource("1_j6epm")
+region = Rect2(12, 0, 12, 12)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3aim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1k3f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

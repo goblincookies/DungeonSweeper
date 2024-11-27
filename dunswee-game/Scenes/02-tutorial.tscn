@@ -127,5 +127,6 @@ offset_top = 708.0
 offset_bottom = 708.0
 grow_horizontal = 2
 grow_vertical = 2
+buttonText = "Next"
 
 [connection signal="clicked" from="BttnStart" to="." method="_on_bttn_start_clicked"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://yp2ijcxoo3s5"]
+[gd_scene load_steps=11 format=3 uid="uid://yp2ijcxoo3s5"]
 
 [ext_resource type="Script" path="res://Scripts/Nested/tile.gd" id="1_exg0f"]
 [ext_resource type="Texture2D" uid="uid://dqrlix0tch6h8" path="res://Assets/Art/TitleCovered.png" id="2_6jdk4"]
 [ext_resource type="Texture2D" uid="uid://3exugw43ddu3" path="res://Assets/Art/TitleRevealed.png" id="3_sp478"]
 [ext_resource type="Texture2D" uid="uid://dtqsi0o7j188h" path="res://Assets/Art/Enemy.png" id="4_0g30p"]
 [ext_resource type="Texture2D" uid="uid://cem7mqt5gn2js" path="res://Assets/Art/Empty.png" id="5_28lkj"]
+[ext_resource type="SpriteFrames" uid="uid://bed0nvbp7yht" path="res://Assets/Animations/bats.tres" id="6_2fyrm"]
 [ext_resource type="Texture2D" uid="uid://dfo7x1trforra" path="res://Assets/Art/Key.png" id="6_psn7l"]
 [ext_resource type="Texture2D" uid="uid://bgkc8bps3niyo" path="res://Assets/Art/TokenEnemy.png" id="7_mvd72"]
 [ext_resource type="Texture2D" uid="uid://ctso5lvk65hhm" path="res://Assets/Art/TokenKey.png" id="8_tlgh5"]
@@ -37,12 +38,6 @@ visible = false
 position = Vector2(60, 60)
 texture = ExtResource("3_sp478")
 
-[node name="Enemy" type="Sprite2D" parent="."]
-texture_repeat = 1
-position = Vector2(60, 60)
-scale = Vector2(0.783333, 0.783333)
-texture = ExtResource("4_0g30p")
-
 [node name="Empty" type="Sprite2D" parent="."]
 position = Vector2(60, 60)
 texture = ExtResource("5_28lkj")
@@ -50,6 +45,20 @@ texture = ExtResource("5_28lkj")
 [node name="Key" type="Sprite2D" parent="."]
 position = Vector2(60, 60)
 texture = ExtResource("6_psn7l")
+
+[node name="Enemy2" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 1
+position = Vector2(60, 60)
+scale = Vector2(0.783333, 0.783333)
+texture = ExtResource("4_0g30p")
+
+[node name="Enemy" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 60)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("6_2fyrm")
+autoplay = "default"
+frame_progress = 0.0402343
 
 [node name="Count2" type="Label" parent="."]
 visible = false
